@@ -1,0 +1,13 @@
+.recipe-details {
+  padding: 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.review-box {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}

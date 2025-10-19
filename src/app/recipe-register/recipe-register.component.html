@@ -1,0 +1,52 @@
+<div class="reg-container d-flex justify-content-center align-items-center p-5" 
+  style="background-color: #50589C;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;">
+  <div class="glass-card p-4 shadow rounded-4 w-100" style="max-width: 700px;">
+    <h2 class="text-center mb-4 text-dark">Recipe Craft </h2>
+
+    <form #recipeForm="ngForm" (ngSubmit)="registerRecipe(recipeForm)">
+      <div class="mb-3">
+        <label for="title" class="form-label text-dark">Title</label>
+        <input type="text" id="title" name="title" class="form-control" ngModel required>
+      </div>
+
+      <div class="mb-3">
+        <label for="cuisine" class="form-label text-dark">Cuisine</label>
+        <input type="text" id="cuisine" name="cuisine" class="form-control" ngModel required>
+      </div>
+
+      <div class="mb-3">
+        <label for="category" class="form-label text-dark">Category</label>
+        <input type="text" id="category" name="category" class="form-control" ngModel required>
+      </div>
+
+      <div class="mb-3">
+        <label for="ingredients" class="form-label text-dark">Ingredients</label>
+        <textarea id="ingredients" name="ingredients" class="form-control" rows="4" ngModel required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="instructions" class="form-label text-dark">Instructions</label>
+        <textarea id="instructions" name="instructions" class="form-control" rows="4" ngModel required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="total_time" class="form-label text-dark">Total Time (minutes)</label>
+        <input type="number" id="total_time" name="total_time" class="form-control" ngModel required>
+      </div>
+
+      <div class="mb-4">
+        <label for="image" class="form-label text-dark">Recipe Image</label>
+        <input type="file" id="image" class="form-control" (change)="onFileChange($event)">
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-success btn-lg">Register</button>
+        <button type="button" class="btn btn-outline-primary mb-3" routerLink="/main-view">← Back</button>                                                          
+      </div>
+    </form>
+  </div>
+</div>

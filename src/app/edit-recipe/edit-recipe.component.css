@@ -1,0 +1,4 @@
+.glass-card {
+  background: rgba(9, 184, 207, 0.185);
+  backdrop-filter: blur(15px);
+}

@@ -1,0 +1,20 @@
+.container-fluid {
+  background-image: url(../../assets/img/profimg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.card {
+  max-width: 600px;
+  border-radius: 15px;
+  left: 300px;
+  top: 40px;
+}
+
+img.rounded-circle {
+  object-fit: cover;
+}
+
+

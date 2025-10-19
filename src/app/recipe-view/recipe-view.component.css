@@ -1,0 +1,13 @@
+.recipe-container {
+  max-width: 600px;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.button-group button {
+  margin: 10px 5px 0 0;
+  padding: 8px 12px;
+  cursor: pointer;
+}

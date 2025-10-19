@@ -1,0 +1,24 @@
+<div class="login-container d-flex justify-content-center align-items-center">
+  <div class="glass-card p-4 shadow rounded-4 w-100" >
+    <h3 class="text-center mb-4 text-white">Login</h3>
+
+    <form #form1="ngForm" (ngSubmit)="login(form1.value)">
+      <div class="mb-3">
+        <label for="username" class="form-label text-white">Username</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Enter username" ngModel required/>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label text-white">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" ngModel required/>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn" style="background-color: #09caec; color: white; " [disabled]="form1.invalid">
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
