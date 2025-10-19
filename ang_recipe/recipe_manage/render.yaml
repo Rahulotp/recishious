@@ -1,1 +1,17 @@
+services:
+  - type: web
+    name: recishious-backend
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn recipe_manage.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: recipe_manage.settings
+      - key: SECRET_KEY
+        value: 'django-insecure-xr%@^%bw=o1m4s-ah5l2ze$x-9+#$j20t$&*-&l!ypn2px$4l!'
+      - key: ALLOWED_HOSTS
+        value: recishious-backend.onrender.com
+      - key: DEBUG
+        value: False
+    autoDeploy: true
 
