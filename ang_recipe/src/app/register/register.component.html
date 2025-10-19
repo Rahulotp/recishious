@@ -1,0 +1,43 @@
+<div class="register-container d-flex justify-content-center align-items-center p-5 " >
+  <div class="glass-card p-4 shadow rounded-4 w-100 " style="max-width: 400px; height: 700px ">
+    <h3 class="text-center mb-4 text-white">Register</h3>
+
+    <form #form1="ngForm" (ngSubmit)="register(form1.value)">
+      <div class="mb-3">
+        <label class="form-label text-white" for="firstName">First Name</label>
+        <input ngModel required name="first_name" autocomplete="off" type="text" id="firstName" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-white" for="lastName">Last Name</label>
+        <input ngModel required name="last_name" autocomplete="off" type="text" id="lastName" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-white" for="emailAddress">Email</label>
+        <input ngModel required name="email" autocomplete="off" type="email" id="emailAddress" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-white" for="phoneNumber">Phone Number</label>
+        <input ngModel required name="phone" autocomplete="off" type="tel" id="phoneNumber" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-white" for="Username">Username</label>
+        <input ngModel required name="username" autocomplete="off" type="text" id="Username" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-white" for="Password">Password</label>
+        <input ngModel required name="password" autocomplete="off" type="password" id="Password" class="form-control" />
+      </div>
+
+      <div class="d-grid">
+        <button class="btn" type="submit" style="background-color: #1B4D3E; color: white;" [disabled]="form1.invalid">
+          Sign Up
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

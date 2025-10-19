@@ -1,0 +1,45 @@
+<div class="container my-4 glass-card p-4 shadow rounded-4 w-100"  
+  style="background-color: hsl(133, 81%, 23%);background-size: cover;background-position: center;
+  background-repeat: no-repeat;min-height: 100vh;">
+  
+  <h2 class="mb-4">Edit Recipe</h2>
+  <form #editForm="ngForm" (ngSubmit)="updateRecipe()">
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" id="title" name="title" class="form-control" [(ngModel)]="recipe.title" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="cuisine" class="form-label">Cuisine:</label>
+      <input type="text" id="cuisine" name="cuisine" class="form-control" [(ngModel)]="recipe.cuisine" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="category" class="form-label">Category:</label>
+      <input type="text" id="category" name="category" class="form-control" [(ngModel)]="recipe.category" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="ingredients" class="form-label">Ingredients:</label>
+      <textarea id="ingredients" name="ingredients" rows="4" class="form-control" [(ngModel)]="recipe.ingredients" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="instructions" class="form-label">Instructions:</label>
+      <textarea id="instructions" name="instructions" rows="4" class="form-control" [(ngModel)]="recipe.instructions" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="total_time" class="form-label">Total Time (minutes):</label>
+      <input type="number" id="total_time" name="total_time" class="form-control" [(ngModel)]="recipe.total_time" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="image" class="form-label">Image:</label>
+      <input type="file" id="image" class="form-control" (change)="onFileChange($event)" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Update Recipe</button>
+  </form>
+</div>

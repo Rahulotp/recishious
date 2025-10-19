@@ -1,0 +1,28 @@
+ <div *ngIf="recipe" class="recipe-container container py-4 bg-light rounded shadow-sm">
+  <p><strong>Posted by:</strong> {{ recipe.username }}</p>
+  <h2 class="mb-3">{{ recipe.title }}</h2>
+
+  <img *ngIf="recipe.image" [src]="'http://127.0.0.1:8000' + recipe.image"  alt="Recipe Image" 
+  class="img-fluid mb-3" style="max-width: 150px;"/>
+  
+  <p><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
+  <p><strong>Category:</strong> {{ recipe.category }}</p>
+
+  <p><strong>Ingredients:</strong></p>
+  <pre class="bg-white p-3 rounded border">{{ recipe.ingredients }}</pre>
+  
+  <p><strong>Instructions:</strong></p>
+  <pre class="bg-white p-3 rounded border">{{ recipe.instructions }}</pre>
+
+  <p><strong>Total Time:</strong> {{ recipe.total_time }} minutes</p>
+
+  <div class="button-group mt-4 d-flex gap-3">
+    <button *ngIf="isOwner" (click)="goToEdit()" class="btn btn-primary">Edit</button>
+    <button *ngIf="isOwner" (click)="deleteRecipe()" class="btn btn-danger">Delete</button>
+    <button class="btn btn-secondary" routerLink="/main-view">Back</button>
+  </div>
+</div>
+
+<div *ngIf="!recipe" class="container py-4 text-center">
+  <p>Loading recipe details...</p>
+</div>

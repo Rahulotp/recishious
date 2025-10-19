@@ -1,0 +1,13 @@
+.register-container {
+  /* background-color: #690B22; */
+  background-image: url(../../assets/img/regimg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+}
