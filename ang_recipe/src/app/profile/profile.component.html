@@ -1,4 +1,4 @@
-<div class="container-fluid" >
+<!-- <div class="container-fluid" >
   <div class="card shadow p-4">
     <div class="text-center mb-4">
       <img [src]="getProfileImageUrl(profile.profile_image)" alt="Profile" class="rounded-circle border border-3 border-success"
@@ -101,5 +101,93 @@
     <div class="text-center mt-4">
       <button class="btn btn-secondary" routerLink="/main-view">Back</button>
     </div>
+  </div>
+</div> -->
+
+<div class="container-fluid">
+  <div class="card shadow p-4 mb-5">
+    <div class="text-center mb-4">
+      <img [src]="getProfileImageUrl(profile.profile_image)" alt="Profile" class="rounded-circle border border-3 border-success"
+        width="150" height="150"/>
+      <h4 class="mt-3">{{ profile.username }}</h4>
+      <p class="mb-0"><strong>Email:</strong> {{ profile.email }}</p>
+      <p class="mb-0"><strong>Phone:</strong> {{ profile.phone || 'N/A' }}</p>
+      <p class="mb-0"><strong>Total Recipes:</strong> {{ profile.total_recipes }}</p>
+    </div>
+
+    <div class="text-center mb-3">
+      <button class="btn btn-outline-success me-2" (click)="toggleSection('update')">Update Profile</button>
+      <button class="btn btn-outline-primary" (click)="toggleSection('password')">Change Password</button>
+    </div>
+    <hr/>
+
+    <div *ngIf="showUpdateForm" class="mt-3">
+      <h5 class="mb-3">Update Profile</h5>
+      <form (ngSubmit)="updateProfile()" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label>New Username</label>
+          <input type="text" class="form-control" [(ngModel)]="updateData.username" name="username" />
+        </div>
+        <div class="mb-3">
+          <label>New Email</label>
+          <input type="email" class="form-control" [(ngModel)]="updateData.email" name="email" />
+        </div>
+        <div class="mb-3">
+          <label>New Phone</label>
+          <input type="text" class="form-control" [(ngModel)]="updateData.phone" name="phone" />
+        </div>
+        <div class="mb-3">
+          <label>Change Profile Image</label>
+          <input type="file" class="form-control" (change)="onFileSelect($event)" />
+        </div>
+        <div *ngIf="previewUrl" class="text-center mb-3">
+          <p class="text-muted mb-1">Preview:</p>
+          <img [src]="previewUrl" alt="Preview" class="rounded-circle border border-2" width="120" height="120"/>
+        </div>
+        <button class="btn btn-success w-100" type="submit">Save Changes</button>
+      </form>
+    </div>
+
+    <div *ngIf="showPasswordForm" class="mt-3">
+      <h5 class="mb-3">Change Password</h5>
+      <form (ngSubmit)="changePassword()">
+        <div class="mb-3">
+          <label>Old Password</label>
+          <input type="password" class="form-control" [(ngModel)]="passwordData.old_password" name="old_password" required/>
+        </div>
+        <div class="mb-3">
+          <label>New Password</label>
+          <input type="password" class="form-control" [(ngModel)]="passwordData.new_password" name="new_password" required/>
+        </div>
+        <div class="mb-3">
+          <label>Confirm New Password</label>
+          <input type="password" class="form-control" [(ngModel)]="passwordData.confirm_password" name="confirm_password" required/>
+        </div>
+        <button class="btn btn-primary w-100" type="submit">Update Password</button>
+      </form>
+    </div>
+  </div>
+
+  <h4 class="mb-4 text-center text-white">Your Uploaded Recipes</h4>
+
+  <div *ngIf="userRecipes.length === 0" class="text-center text-muted mb-4">
+    <p>You haven't uploaded any recipes yet.</p>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let recipe of userRecipes" class="col-md-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <img [src]="getRecipeImageUrl(recipe.image)" alt="Recipe Image" class="card-img-top" height="200"/>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ recipe.title }}</h5>
+          <p class="card-text text-muted">{{ recipe.category }}</p>
+          <button class="btn btn-outline-primary w-100" (click)="viewRecipe(recipe.id)">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-secondary" routerLink="/main-view">Back</button>
   </div>
 </div>

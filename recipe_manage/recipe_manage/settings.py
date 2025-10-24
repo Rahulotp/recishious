@@ -23,10 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xr%@^%bw=o1m4s-ah5l2ze$x-9+#$j20t$&*-&l!ypn2px$4l!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = True
 
-ALLOWED_HOSTS = ['your-backend.onrender.com', 'localhost', '127.0.0.1']
+# ALLOWED_HOSTS = ['yourusername.pythonanywhere.com', 'localhost', '127.0.0.1']
+DEBUG = True
 
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -133,9 +135,27 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL='recipeapp.User'
 
+# CORS_ALLOWED_ORIGINS = [
+#     "https://recishious.netlify.app",
+# ]
+
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://recishious.netlify.app",
+# ]
+
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+    "http://127.0.0.1:4200",
     "https://recishious.netlify.app",
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:4200",
+    "http://127.0.0.1:4200",
+    "https://recishious.netlify.app",
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_ALL_HEADERS = True
 
@@ -148,14 +168,19 @@ REST_FRAMEWORK = {
     ]
 }
 
+# STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:4200',
-    'http://127.0.0.1:4200',
-    'https://recishious.netlify.app',
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "https://my-angular-frontend.netlify.app", 
+# ]
+
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://my-angular-frontend.netlify.app",
+# ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
